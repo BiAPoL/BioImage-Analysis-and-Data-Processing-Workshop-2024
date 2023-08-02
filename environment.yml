@@ -6,13 +6,15 @@ channels:
 
 dependencies:
   - python>=3.9, <3.10
-  - napari==0.4.17
+  - napari==0.4.18
   - devbio-napari
   - jupyterlab
   - matplotlib
   - seaborn
   - openpyxl
   - pyrsistent
+  - pyqt
+  - napari-process-points-and-surfaces
   - pip
   - pip:
       - napari-stl-exporter
