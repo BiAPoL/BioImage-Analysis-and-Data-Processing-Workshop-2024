@@ -101,7 +101,7 @@ The reason for this is that incompatibilities between packages can occur. Robert
 
 In order to have the course material locally in your computer, you should clone this repository. An easy way to do that is by downloading it as a `.zip` file, uncompressing it and storing the folder inside in a known location. The picture below shows how to do that.
 
-__Insert figure__
+![](imgs/download_zip.png)
 
 ## Creating a new environment  for the course
 For this course, we will create an environment based on setting given by a `.yml` file. So, open the Command Prompt and navigate to where you stored this course material (to navigate to different folders with the Command Prompt, use the command `cd` followed by the absolute path of the folder), for example, if you stored in the Documents folder, type:
