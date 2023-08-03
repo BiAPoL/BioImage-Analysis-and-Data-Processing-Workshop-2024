@@ -15,6 +15,7 @@ dependencies:
   - pyrsistent
   - pyqt
   - napari-process-points-and-surfaces
+  - watermark
   - pip
   - pip:
       - napari-stl-exporter
