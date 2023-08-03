@@ -1,5 +1,5 @@
 # Getting started with Mambaforge and Python 
-From blog post written by [Mara Lampert](https://biapol.github.io/blog/mara_lampert/readme.html) on January 26th, 2023
+Adapted from blog post written by [Mara Lampert](https://biapol.github.io/blog/mara_lampert/readme.html) on January 26th, 2023
 
 ## Introduction to Python and Mamba 
 This blog post explains what Python and [Mamba](https://mamba.readthedocs.io/en/latest/installation.html)/ Mambaforge, and how you can download and setup it on your computer. We will also go through some steps how to get started with Bio-image Analysis. 
