@@ -10,10 +10,11 @@ options: # The options key will be applied to all chapters, but not sub-sections
 
 
 parts:
+  
   - caption: Bio-Image Analysis with Jupyter and napari
     chapters:
       - file: installation
-      - file: BioImage_Analysis_with_Jupyter_and_napari/
+      - file: BioImage_Analysis_with_Jupyter_and_napari/00_intro
         sections:
           - file: BioImage_Analysis_with_Jupyter_and_napari/01_images_are_numpy_arrays
           - file: BioImage_Analysis_with_Jupyter_and_napari/02_Napari_from_Jupyter_introduction
