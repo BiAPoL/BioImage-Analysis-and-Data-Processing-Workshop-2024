@@ -1,0 +1,26 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+
+options: # The options key will be applied to all chapters, but not sub-sections
+  numbered: False
+
+
+
+parts:
+  - caption: Bio-Image Analysis with Jupyter and napari
+    chapters:
+      - file: installation
+      - file: BioImage_Analysis_with_Jupyter_and_napari/
+        sections:
+          - file: BioImage_Analysis_with_Jupyter_and_napari/01_images_are_numpy_arrays
+          - file: BioImage_Analysis_with_Jupyter_and_napari/02_Napari_from_Jupyter_introduction
+          - file: BioImage_Analysis_with_Jupyter_and_napari/03_Filters_in_3D_Isotropic_Data
+          - file: BioImage_Analysis_with_Jupyter_and_napari/04_Brightness_and_Contrast_optional
+          - file: BioImage_Analysis_with_Jupyter_and_napari/05_Filters_optional
+          - file: BioImage_Analysis_with_Jupyter_and_napari/06_Segmentation_workflow_example
+          - file: BioImage_Analysis_with_Jupyter_and_napari/07_batch_segmentation_workflow_example
+          - file: BioImage_Analysis_with_Jupyter_and_napari/08_napari-assistant
+          - file: BioImage_Analysis_with_Jupyter_and_napari/09_notebook_export
