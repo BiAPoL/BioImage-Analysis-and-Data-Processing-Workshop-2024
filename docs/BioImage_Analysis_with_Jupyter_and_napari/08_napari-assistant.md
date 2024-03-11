@@ -62,7 +62,7 @@ Close all layers except `nuclei` and `membrane`.
 
 ![](../images/napari-assistant15.jpg)
 
-Turn of Gridview and click again on the `Label` button in the Assistant.
+Turn off Grid view and click again on the `Label` button in the Assistant.
 
 ![](../images/napari-assistant16.jpg)
 
