@@ -9,7 +9,7 @@ We will use the napari plugin [napari-accelerated-pixel-and-object-classificatio
 Open a terminal window and activate your conda environment:
 
 ```
-conda activate devbio-napari-env
+mamba activate napari-intro-env
 ```
 
 Afterwards, start up Napari:
@@ -61,3 +61,6 @@ Click on `Train`. A label image should show up.
 
 If the segmentation works well, consider backing up the `ObjectSegmenter.cl` file that has been saved. 
 If you didn't change the file location before training, it will be located in the folder from where you started napari on the command line.
+
+## Extra exercise
+Train a new classifier for an image from the BBB007 dataset found in the [data folder of this repository](../../../data/BBBC007_batch/) and run predictions on another image. From the predictions result, infer how much your model could abstract and what could be done to make it more general. 
