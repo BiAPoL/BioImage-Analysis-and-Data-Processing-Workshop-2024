@@ -23,9 +23,10 @@ parts:
     - file: BioImage_Analysis_with_Jupyter_and_napari/09_notebook_export
 - caption: Machine Learning with napari Plugins
   chapters:
-  - file: BioImage_Analysis_with_Jupyter_and_napari/00_intro # TODO update here
+  - file: Machine_Learning_with_napari/00_intro
     sections:
     - file: Machine_Learning_with_napari/interactive_pixel_classification/readme
     - file: Machine_Learning_with_napari/interactive_object_classification/readme
     - file: Machine_Learning_with_napari/apoc_train_on_folders
-    - file: Machine_Learning_with_napari/napari_flim_phasor_plotter_Demo/Example_workflow
+    - file: Machine_Learning_with_napari/interactive_unsupervised_object_classification/ncp_exercise
+    - file: Machine_Learning_with_napari/FLIM/exercise
