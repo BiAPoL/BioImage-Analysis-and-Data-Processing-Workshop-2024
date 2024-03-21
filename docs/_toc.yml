@@ -28,5 +28,5 @@ parts:
     - file: Machine_Learning_with_napari/interactive_pixel_classification/readme
     - file: Machine_Learning_with_napari/interactive_object_classification/readme
     - file: Machine_Learning_with_napari/apoc_train_on_folders
-    - file: Machine_Learning_with_napari/interactive_unsupervised_object_classification/ncp_exercise
-    - file: Machine_Learning_with_napari/FLIM/exercise
+    - file: Machine_Learning_with_napari/interactive_unsupervised_object_classification/readme
+    - file: Machine_Learning_with_napari/FLIM/readme
