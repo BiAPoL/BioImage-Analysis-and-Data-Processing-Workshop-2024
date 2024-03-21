@@ -1,0 +1,569 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Interactive pixel classification and object segmentation in Napari &#8212; QM Course Bio-Image Analysis with napari 2024</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Machine_Learning_with_napari/interactive_pixel_classification/readme';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Interactive object classification in Napari" href="../interactive_object_classification/readme.html" />
+    <link rel="prev" title="Machine Learning with napari plugins" href="../00_intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/biapol_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/biapol_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    QM Course - Lectures on Bio-Image Analysis with napari
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Bio-Image Analysis with Jupyter and napari</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../BioImage_Analysis_with_Jupyter_and_napari/00_intro.html">Introduction to Bio-Image Analysis with Jupyter and napari</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../BioImage_Analysis_with_Jupyter_and_napari/01_images_are_numpy_arrays.html">Images in python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../BioImage_Analysis_with_Jupyter_and_napari/02_Napari_from_Jupyter_introduction.html">Using Napari to visualize and interact with images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../BioImage_Analysis_with_Jupyter_and_napari/03_Filters_in_3D_Isotropic_Data.html">3D Image Filters and Anisotropic Data</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../BioImage_Analysis_with_Jupyter_and_napari/04_Brightness_and_Contrast_optional.html">Brightness and Contrast (optional)</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../BioImage_Analysis_with_Jupyter_and_napari/05_Filters_optional.html">Filters and Background Reduction (extra)</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../BioImage_Analysis_with_Jupyter_and_napari/06_Segmentation_workflow_example.html">My Segmentation Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../BioImage_Analysis_with_Jupyter_and_napari/07_batch_segmentation_workflow_example.html">Batch Segmentation Workflow</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../BioImage_Analysis_with_Jupyter_and_napari/08_napari-assistant.html">The Napari Assistant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../BioImage_Analysis_with_Jupyter_and_napari/09_notebook_export.html">Generating Jupyter Notebooks from the Napari Assistant</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Machine Learning with napari Plugins</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../00_intro.html">Machine Learning with napari plugins</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Interactive pixel classification and object segmentation in Napari</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../interactive_object_classification/readme.html">Interactive object classification in Napari</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apoc_train_on_folders.html">Training pixel classifiers from folders of images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../interactive_unsupervised_object_classification/ncp_exercise.html">Interactive unsupervised object classification in Napari</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FLIM/exercise.html">Segmenting an example FLIM image with the phasor plot in napari</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/zoccoler/QM_Course_Bio_Image_Analysis_with_napari_2024" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/zoccoler/QM_Course_Bio_Image_Analysis_with_napari_2024/issues/new?title=Issue%20on%20page%20%2FMachine_Learning_with_napari/interactive_pixel_classification/readme.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/Machine_Learning_with_napari/interactive_pixel_classification/readme.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Interactive pixel classification and object segmentation in Napari</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting started</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pixel-classification-and-object-segmentation-in-napari">Pixel classification and Object Segmentation in Napari</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-exercise">Extra exercise</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="interactive-pixel-classification-and-object-segmentation-in-napari">
+<span id="machine-learning-pixel-classification"></span><h1>Interactive pixel classification and object segmentation in Napari<a class="headerlink" href="#interactive-pixel-classification-and-object-segmentation-in-napari" title="Permalink to this heading">#</a></h1>
+<p>In this exercise we will train a <a class="reference external" href="https://en.wikipedia.org/wiki/Random_forest">Random Forest Classifier</a> for pixel classification and convert the result in an instance segmentation.
+We will use the napari plugin <a class="reference external" href="https://www.napari-hub.org/plugins/napari-accelerated-pixel-and-object-classification">napari-accelerated-pixel-and-object-classification</a>.</p>
+<section id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this heading">#</a></h2>
+<p>Open a terminal window and activate your conda environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mamba</span> <span class="n">activate</span> <span class="n">napari</span><span class="o">-</span><span class="n">intro</span><span class="o">-</span><span class="n">env</span>
+</pre></div>
+</div>
+<p>Afterwards, start up Napari:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">napari</span>
+</pre></div>
+</div>
+<p>Load the “Blobs” example dataset from the menu <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">&gt;</span> <span class="pre">Open</span> <span class="pre">Sample</span> <span class="pre">&gt;</span> <span class="pre">clEsperanto</span> <span class="pre">&gt;</span> <span class="pre">Blobs</span> <span class="pre">(from</span> <span class="pre">ImageJ)</span></code></p>
+<p><img alt="" src="../../_images/apoc1.png" /></p>
+</section>
+<section id="pixel-classification-and-object-segmentation-in-napari">
+<h2>Pixel classification and Object Segmentation in Napari<a class="headerlink" href="#pixel-classification-and-object-segmentation-in-napari" title="Permalink to this heading">#</a></h2>
+<p>For segmenting objects, we can use the Object Segmentation tool in APOC.
+Under the hood it uses a pixel classifier and <a class="reference external" href="https://en.wikipedia.org/wiki/Connected-component_labeling">connected component labeling</a>.
+The following procedure is also shown in <a class="reference download internal" download="" href="../../_downloads/9c66469515ac63c45a378df0c71b4832/apoc_object_segmentation.mp4"><span class="xref download myst">this video</span></a>.</p>
+<p>Start the object segmentation from the <code class="docutils literal notranslate"><span class="pre">Tools</span> <span class="pre">&gt;</span> <span class="pre">Segmentation</span> <span class="pre">/</span> <span class="pre">Labeling</span> <span class="pre">&gt;</span> <span class="pre">Object</span> <span class="pre">Segmentation</span> <span class="pre">(APOC)</span></code> menu.</p>
+<p><img alt="" src="../../_images/apoc2.png" /></p>
+<p>Add a new labels layer by clicking on this button:
+<img alt="" src="../../_images/apoc3.png" /></p>
+<p>Change the brush size to a small number such as 2 or 3.
+<img alt="" src="../../_images/apoc4.png" /></p>
+<p>Click on the <code class="docutils literal notranslate"><span class="pre">Paint</span> <span class="pre">brush</span></code> button.
+<img alt="" src="../../_images/apoc5.png" /></p>
+<p>Start annotating the <code class="docutils literal notranslate"><span class="pre">background</span></code> region where there is no object.
+<img alt="" src="../../_images/apoc6.png" /></p>
+<p>Increase the label that is drawn by one.
+<img alt="" src="../../_images/apoc7.png" /></p>
+<p>Draw an annotation within the objects of interest. Draw background and object annotation close by each other. The closer these two annotations are drawn, the smaller is the degree of freedom the computer has when optimizing the model later.
+<img alt="" src="../../_images/apoc8.png" /></p>
+<p>Within the <code class="docutils literal notranslate"><span class="pre">Object</span> <span class="pre">segmentation</span></code> user interface on the right, select the image/channel that should be processed.
+<img alt="" src="../../_images/apoc9.png" /></p>
+<p>Also select the annotation label image you have just drawn.
+<img alt="" src="../../_images/apoc10.png" /></p>
+<p>Click on <code class="docutils literal notranslate"><span class="pre">Train</span></code>. A label image should show up.
+<img alt="" src="../../_images/apoc11.png" /></p>
+<p>If the segmentation works well, consider backing up the <code class="docutils literal notranslate"><span class="pre">ObjectSegmenter.cl</span></code> file that has been saved.
+If you didn’t change the file location before training, it will be located in the folder from where you started napari on the command line.</p>
+</section>
+<section id="extra-exercise">
+<h2>Extra exercise<a class="headerlink" href="#extra-exercise" title="Permalink to this heading">#</a></h2>
+<p>Train a new classifier for an image from the BBB007 dataset found in the <span class="xref myst">data folder of this repository</span> and run predictions on another image. From the predictions result, infer how much your model could abstract and what could be done to make it more general.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Machine_Learning_with_napari/interactive_pixel_classification"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../00_intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Machine Learning with napari plugins</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../interactive_object_classification/readme.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Interactive object classification in Napari</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting started</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pixel-classification-and-object-segmentation-in-napari">Pixel classification and Object Segmentation in Napari</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-exercise">Extra exercise</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Marcelo Leomil Zoccoler
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
+Copyright: This work can be reused under the terms of the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC-BY 4.0</a> license unless mentioned otherwise.
+</p>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
