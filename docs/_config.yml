@@ -1,5 +1,5 @@
 # In _config.yml
-title: QM Course Bio-Image Analysis with napari 2024
+title: BioImage Analysis and Data Processing Workshop 2024
 author: Marcelo Leomil Zoccoler
 logo: biapol_logo.png
 execute:
@@ -11,11 +11,11 @@ bibtex_bibfiles:
 
   # Information about where the book exists on the web
 repository:
-  url: https://github.com/zoccoler/QM_Course_Bio_Image_Analysis_with_napari_2024 # Online location of your book
+  url: https://github.com/BiAPoL/BioImage-Analysis-and-Data-Processing-Workshop-2024 # Online location of the book
   path_to_book: docs
-  branch: main # Which branch of the repository should be used when creating links (optional)
+  branch: main # branch used when creating links (optional)
 
-# Add GitHub buttons to your book
+# Add GitHub buttons to the book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
   use_issues_button: true
