@@ -1,4 +1,4 @@
-name: napari-intro-env
+name: napari-intro-env-2
 
 channels:
   - conda-forge
