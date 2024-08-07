@@ -23,7 +23,7 @@ Please follow the instructions from the blog post written by [Mara Lampert](http
 
 Then, clone this repository to your computer. After that, open a terminal, navigate to where you cloned the repository locally in your computer and create a conda environment by running:
 
-`mamba create -f environment.yml`
+`mamba env create -f environment.yml`
 
 or
 
