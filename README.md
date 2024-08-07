@@ -6,7 +6,7 @@ This repository hosts the workshop' jupyter notebooks, markdown files and slides
 This work is licensed by the Bio-Image Analysis Technology Development group (BiAPoL), Cluster of Excellence Physics of Life (PoL), Dresden, under a Creative Commons Attribution 4.0 International License.
 It contains derived materials from previous work from Robert Haase (ScaDS AI Leipzig), Johannes Soltwedel (PoL Dresden), Till Körten (Helmholtz AI Dresden) and Guillaume Witz (Universität Bern).
 
-The Jupyter book of the course can be viewed under this URL: **to be added**
+The Jupyter book of the course can be viewed under this URL: https://biapol.github.io/BioImage-Analysis-and-Data-Processing-Workshop-2024/
 
 It is maintained using [Jupyter lab](https://jupyter.org/) and build using [Jupyter book](https://jupyterbook.org/en/stable/intro.html).
 
