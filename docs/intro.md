@@ -21,7 +21,7 @@ Please follow the instructions from the blog post written by [Mara Lampert](http
 
 ## First environment: napari-intro-env 
 
-Then, clone this repository to your computer. After that, open a terminal, navigate to where you cloned the repository locally in your computer and create a conda environment by running:
+Clone this repository to your computer (go to the repository page on GitHub [here](https://github.com/BiAPoL/BioImage-Analysis-and-Data-Processing-Workshop-2024), click the green button <span style="color:green">**Code**</span> and choose one option to clone it, the most straight-forward being downloading it as a `.zip` file). After that, open a terminal, navigate to where you cloned the repository locally in your computer and create a conda environment by running:
 
 `mamba env create -f environment.yml`
 
