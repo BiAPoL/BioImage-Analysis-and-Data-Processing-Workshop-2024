@@ -1,4 +1,6 @@
 # BioImage-Analysis-and-Data-Processing-Workshop-2024
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13268811.svg)](https://doi.org/10.5281/zenodo.13268811)
+
 This repository hosts material for the BioImage Analysis and Data Processing Workshop 2024, which takes place in VMCF Microscopy Facility, Vinicna 7, Prague, Czechia
 
 This repository hosts the workshop' jupyter notebooks and markdown files. Slides are available on zenodo [here](https://zenodo.org/records/13268811).
